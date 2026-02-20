@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/001-create-documents-table.yaml
+  - include:
+      file: db/changelog/002-create-history-table.yaml
+  - include:
+      file: db/changelog/003-create-approval-registry-table.yaml

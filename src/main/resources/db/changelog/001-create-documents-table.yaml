@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: system
+      changes:
+        - createTable:
+            tableName: documents
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: document_number
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: author
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: initiator
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+
+        - createIndex:
+            tableName: documents
+            indexName: idx_documents_status
+            columns:
+              - column:
+                  name: status
+
+        - createIndex:
+            tableName: documents
+            indexName: idx_documents_author
+            columns:
+              - column:
+                  name: author
+
+        - createIndex:
+            tableName: documents
+            indexName: idx_documents_created_at
+            columns:
+              - column:
+                  name: created_at
