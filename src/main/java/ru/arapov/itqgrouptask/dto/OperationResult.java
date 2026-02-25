@@ -11,6 +11,7 @@ public record OperationResult(
     public enum ResultStatus {
         SUCCESS,
         CONFLICT,
-        NOT_FOUND
+        NOT_FOUND,
+        REGISTRY_ERROR
     }
 }
